@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="dt">
+        <attr name="BackgroundColor" format="color" />
+        <attr name="bigTextColor" format="color" />
+        <attr name="reverseColor" format="color" />
+        <attr name="smallTextColor" format="color" />
+        <attr name="indicatorColor" format="color" />
+        <attr name="headerColor" format="color" />
+        <attr name="chatStatusBar" format="color"> </attr>
+        <attr name="messageBox" format="color"> </attr>
+        <attr name="IconTint" format="color"> </attr>
+        <attr name="searchColor" format="color"> </attr>
+        <attr name="homeItemBackground" format="color"> </attr>
+
+
+    </declare-styleable>
+</resources>

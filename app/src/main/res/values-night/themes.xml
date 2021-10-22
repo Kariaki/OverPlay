@@ -1,0 +1,40 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.overplay" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorAcent</item>
+        <item name="colorSecondaryVariant">@color/colorAcent</item>
+        <item name="BackgroundColor">@color/black</item>
+        <item name="bigTextColor">@color/background_white</item>
+        <item name="headerColor">@color/background_white</item>
+        <item name="smallTextColor">@color/background_white</item>
+        <item name="indicatorColor">@color/colorPrimary</item>
+
+        <item name="messageBox">@color/headerColor</item>
+        <item name="fontFamily">@font/inder</item>
+        <item name="chatStatusBar">@color/chatColorDark</item>
+
+        <item name="reverseColor">#59575F</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:windowTranslucentStatus">true</item>
+
+        <item name="searchColor">@color/headerColor</item>
+        <!-- Status bar color. -->
+        <item name="IconTint">@color/IconTintDark</item>
+
+        <item name="homeItemBackground">@color/homeItemBackgroundDark</item>
+
+
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.splashScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_design_light</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+</resources>

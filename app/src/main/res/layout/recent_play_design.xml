@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:orientation="vertical"
+        >
+        <androidx.cardview.widget.CardView
+            android:layout_width="90dp"
+            app:cardCornerRadius="3dp"
+            android:layout_height="100dp"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:src="@drawable/six"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                />
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Music to be murdered by"
+            android:maxWidth="100dp"
+            android:layout_gravity="center_horizontal"
+
+            android:textSize="14sp"
+            android:maxLines="2"
+            />
+    </LinearLayout>
+</FrameLayout>

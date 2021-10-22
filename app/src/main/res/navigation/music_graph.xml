@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/music_graph"
+    app:startDestination="@id/overPlayHome">
+
+    <fragment
+        android:id="@+id/songsScreen"
+        android:name="com.overplay.overplay.screens.SongsScreen"
+        android:label="All songs"
+        tools:layout="@layout/songs_screen">
+        <action
+            android:id="@+id/action_songsScreen_to_musicOption"
+            app:destination="@id/musicOption" />
+    </fragment>
+    <fragment
+        android:id="@+id/musicNavHost"
+        android:name="com.overplay.overplay.screens.MusicNavHost"
+        android:label="music_nav_host"
+        tools:layout="@layout/music_nav_host" />
+    <fragment
+        android:id="@+id/overPlayHome"
+        android:name="com.overplay.overplay.screens.bottomNavigationScreens.OverPlayHome"
+        android:label="Overplay"
+        tools:layout="@layout/over_play_home">
+
+
+        <action
+            android:id="@+id/action_overPlayHome_to_songsScreen"
+            app:destination="@id/songsScreen"
+            app:popUpTo="@id/albumSongs" />
+        <action
+            android:id="@+id/action_overPlayHome_to_albumSongs"
+            app:destination="@id/albumSongs"
+            app:popUpTo="@id/overPlayHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/libraryScreen"
+        android:name="com.overplay.overplay.screens.bottomNavigationScreens.LibraryScreen"
+        android:label="Your library"
+        tools:layout="@layout/library_screen">
+        <action
+            android:id="@+id/action_libraryScreen_to_folderMusicScreen2"
+            app:destination="@id/libraryMusicScreen2" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchScreen"
+        android:name="com.overplay.overplay.screens.bottomNavigationScreens.SearchScreen"
+        android:label="Explore"
+        tools:layout="@layout/search_screen">
+        <action
+            android:id="@+id/action_searchScreen_to_searchQueryScreen"
+            app:destination="@id/searchQueryScreen"
+            app:popUpTo="@id/searchScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/albumSongs"
+        android:name="com.overplay.overplay.screens.AlbumSongsScreen"
+        android:label="Albums"
+        tools:layout="@layout/album_songs">
+        <argument
+            android:name="albumName"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="album"
+            app:argType="com.overplay.overplay.database.entities.MusicItem" />
+        <action
+            android:id="@+id/action_albumSongs_to_musicOption"
+            app:destination="@id/musicOption" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsScreen"
+        android:name="com.overplay.overplay.screens.SettingsScreen"
+        android:label="Settings"
+        tools:layout="@layout/settings_screen" />
+    <fragment
+        android:id="@+id/libraryMusicScreen2"
+        android:name="com.overplay.overplay.screens.LibraryMusicScreen"
+        android:label="{label}"
+        tools:layout="@layout/library_music_screen">
+        <argument
+            android:name="query_text"
+            app:argType="string" />
+        <argument
+            android:name="label"
+            app:argType="string" />
+        <argument
+            android:name="type"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_libraryMusicScreen2_to_musicOption"
+            app:destination="@id/musicOption" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchQueryScreen"
+        android:name="com.overplay.overplay.screens.SearchQueryScreen"
+        android:label="search_query_screen"
+        tools:layout="@layout/search_query_screen" >
+        <action
+            android:id="@+id/action_searchQueryScreen_to_musicOption"
+            app:destination="@id/musicOption" />
+    </fragment>
+    <dialog
+        android:id="@+id/musicOption"
+        android:name="com.overplay.overplay.MusicOptionModal"
+        android:label="MusicOption" >
+        <argument
+            android:name="musicItem"
+            app:argType="com.overplay.overplay.database.entities.MusicItem" />
+    </dialog>
+</navigation>
