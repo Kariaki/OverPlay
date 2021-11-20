@@ -1,4 +1,4 @@
-package com.overplay.overplay.screens
+package com.overplay.overplay.ui.others
 
 import android.content.Context
 import android.content.Intent
@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.overplay.overplay.Adapter.ViewHolders.Plugs.SongsPlug
+import com.overplay.overplay.adapter.ViewHolders.Plugs.SongsPlug
 import com.overplay.overplay.notification.BackgroundMusicService
 import com.overplay.overplay.util.Constants
 import com.overplay.overplay.R

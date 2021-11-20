@@ -1,4 +1,4 @@
-package com.overplay.overplay.screens.bottomNavigationScreens
+package com.overplay.overplay.ui.bottomNavigationScreens
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,8 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.overplay.overplay.Adapter.FolderClickListener
-import com.overplay.overplay.Adapter.ViewHolders.Plugs.SongsPlug
+import com.overplay.overplay.adapter.FolderClickListener
+import com.overplay.overplay.adapter.ViewHolders.Plugs.SongsPlug
 import com.overplay.overplay.util.Constants
 import com.overplay.overplay.R
 import com.overplay.overplay.database.entities.MusicItem

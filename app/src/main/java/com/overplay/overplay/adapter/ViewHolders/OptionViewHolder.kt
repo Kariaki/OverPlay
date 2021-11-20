@@ -1,4 +1,4 @@
-package com.overplay.overplay.Adapter.ViewHolders
+package com.overplay.overplay.adapter.ViewHolders
 
 import android.content.Context
 import android.view.View

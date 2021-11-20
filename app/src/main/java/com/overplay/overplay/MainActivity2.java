@@ -7,16 +7,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.overplay.overplay.DependencyInjection.Car;
-import com.overplay.overplay.DependencyInjection.CarComponent;
 import com.overplay.overplay.databinding.ActivityMain2Binding;
 
 import javax.inject.Inject;
 
 public class MainActivity2 extends AppCompatActivity {
 
-    @Inject
-    Car car;
+
 
     private ActivityMain2Binding binding;
 

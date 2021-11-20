@@ -7,21 +7,22 @@
 
     <fragment
         android:id="@+id/songsScreen"
-        android:name="com.overplay.overplay.screens.SongsScreen"
+        android:name="com.overplay.overplay.ui.others.SongsScreen"
         android:label="All songs"
         tools:layout="@layout/songs_screen">
         <action
             android:id="@+id/action_songsScreen_to_musicOption"
-            app:destination="@id/musicOption" />
+            app:destination="@id/musicOption"
+            app:launchSingleTop="true" />
     </fragment>
     <fragment
         android:id="@+id/musicNavHost"
-        android:name="com.overplay.overplay.screens.MusicNavHost"
+        android:name="com.overplay.overplay.ui.others.MusicNavHost"
         android:label="music_nav_host"
         tools:layout="@layout/music_nav_host" />
     <fragment
         android:id="@+id/overPlayHome"
-        android:name="com.overplay.overplay.screens.bottomNavigationScreens.OverPlayHome"
+        android:name="com.overplay.overplay.ui.bottomNavigationScreens.OverPlayHome"
         android:label="Overplay"
         tools:layout="@layout/over_play_home">
 
@@ -29,24 +30,30 @@
         <action
             android:id="@+id/action_overPlayHome_to_songsScreen"
             app:destination="@id/songsScreen"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/albumSongs" />
         <action
             android:id="@+id/action_overPlayHome_to_albumSongs"
             app:destination="@id/albumSongs"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/overPlayHome" />
     </fragment>
     <fragment
         android:id="@+id/libraryScreen"
-        android:name="com.overplay.overplay.screens.bottomNavigationScreens.LibraryScreen"
+        android:name="com.overplay.overplay.ui.bottomNavigationScreens.LibraryScreen"
         android:label="Your library"
         tools:layout="@layout/library_screen">
         <action
             android:id="@+id/action_libraryScreen_to_folderMusicScreen2"
-            app:destination="@id/libraryMusicScreen2" />
+            app:destination="@id/libraryMusicScreen2"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/searchScreen"
-        android:name="com.overplay.overplay.screens.bottomNavigationScreens.SearchScreen"
+        android:name="com.overplay.overplay.ui.bottomNavigationScreens.SearchScreen"
         android:label="Explore"
         tools:layout="@layout/search_screen">
         <action
@@ -56,7 +63,7 @@
     </fragment>
     <fragment
         android:id="@+id/albumSongs"
-        android:name="com.overplay.overplay.screens.AlbumSongsScreen"
+        android:name="com.overplay.overplay.ui.others.AlbumSongsScreen"
         android:label="Albums"
         tools:layout="@layout/album_songs">
         <argument
@@ -68,16 +75,17 @@
             app:argType="com.overplay.overplay.database.entities.MusicItem" />
         <action
             android:id="@+id/action_albumSongs_to_musicOption"
-            app:destination="@id/musicOption" />
+            app:destination="@id/musicOption"
+            app:launchSingleTop="true" />
     </fragment>
     <fragment
         android:id="@+id/settingsScreen"
-        android:name="com.overplay.overplay.screens.SettingsScreen"
+        android:name="com.overplay.overplay.ui.SettingsScreen"
         android:label="Settings"
         tools:layout="@layout/settings_screen" />
     <fragment
         android:id="@+id/libraryMusicScreen2"
-        android:name="com.overplay.overplay.screens.LibraryMusicScreen"
+        android:name="com.overplay.overplay.ui.others.LibraryMusicScreen"
         android:label="{label}"
         tools:layout="@layout/library_music_screen">
         <argument
@@ -91,16 +99,18 @@
             app:argType="integer" />
         <action
             android:id="@+id/action_libraryMusicScreen2_to_musicOption"
-            app:destination="@id/musicOption" />
+            app:destination="@id/musicOption"
+            app:launchSingleTop="true" />
     </fragment>
     <fragment
         android:id="@+id/searchQueryScreen"
-        android:name="com.overplay.overplay.screens.SearchQueryScreen"
+        android:name="com.overplay.overplay.ui.others.SearchQueryScreen"
         android:label="search_query_screen"
         tools:layout="@layout/search_query_screen" >
         <action
             android:id="@+id/action_searchQueryScreen_to_musicOption"
-            app:destination="@id/musicOption" />
+            app:destination="@id/musicOption"
+            app:launchSingleTop="true" />
     </fragment>
     <dialog
         android:id="@+id/musicOption"
@@ -109,5 +119,21 @@
         <argument
             android:name="musicItem"
             app:argType="com.overplay.overplay.database.entities.MusicItem" />
+        <action
+            android:id="@+id/action_musicOption_to_albumSongs"
+            app:destination="@id/albumSongs"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_musicOption_to_artistScreen"
+            app:destination="@id/artistScreen" />
     </dialog>
+    <fragment
+        android:id="@+id/artistScreen"
+        android:name="com.overplay.overplay.ui.others.ArtistScreen"
+        android:label="artist_screen"
+        tools:layout="@layout/artist_screen" >
+        <argument
+            android:name="artist"
+            app:argType="string" />
+    </fragment>
 </navigation>

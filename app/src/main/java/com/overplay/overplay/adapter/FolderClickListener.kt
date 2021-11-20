@@ -1,4 +1,4 @@
-package com.overplay.overplay.Adapter
+package com.overplay.overplay.adapter
 
 import android.widget.TextView
 import com.votenoid.votenoid.Adapter.SuperClickListener

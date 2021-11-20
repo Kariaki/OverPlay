@@ -6,6 +6,6 @@
     android:fitsSystemWindows="true"
     android:layout_height="match_parent"
     android:background="@drawable/splash_design_light"
-    tools:context=".screens.SplashScreenActivity">
+    tools:context=".ui.others.SplashScreenActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

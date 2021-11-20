@@ -1,4 +1,4 @@
-package com.overplay.overplay.screens
+package com.overplay.overplay.ui.others
 
 import android.os.Bundle
 import android.text.Editable
@@ -9,12 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.overplay.overplay.Adapter.ViewHolders.Plugs.SongsPlug
-import com.overplay.overplay.R
+import com.overplay.overplay.adapter.ViewHolders.Plugs.SongsPlug
 import com.overplay.overplay.database.OverPlayViewModel
 import com.overplay.overplay.database.entities.MusicItem
 import com.overplay.overplay.databinding.SearchQueryScreenBinding
-import com.overplay.overplay.databinding.SearchScreenBinding
 import com.votenoid.votenoid.Adapter.GeneralAdapter
 import com.votenoid.votenoid.Adapter.SuperClickListener
 

@@ -1,6 +1,6 @@
 package com.overplay.overplay.notification
 
-import android.app.Service
+import android.app.*
 import android.content.Intent
 import android.media.AudioAttributes
 import android.media.MediaPlayer
@@ -8,12 +8,8 @@ import android.os.Binder
 import android.os.IBinder
 import com.overplay.overplay.database.entities.CurrentlyPlayingMusic
 import com.overplay.overplay.database.OverPlayViewModel
-import com.overplay.overplay.screens.SongsScreen
-import android.app.NotificationManager
+import com.overplay.overplay.ui.others.SongsScreen
 
-import android.app.Notification
-
-import android.app.NotificationChannel
 import android.content.Context
 
 import android.os.Build
@@ -31,7 +27,8 @@ import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.overplay.overplay.util.Constants
 import com.overplay.overplay.database.entities.MusicItem
-import com.overplay.overplay.screens.PlayMusicScreen
+import com.overplay.overplay.ui.others.PlayMusicScreen
+import com.overplay.overplay.util.FindMusic
 import com.overplay.overplay.util.MusicQueueHelper
 import java.io.File
 
@@ -55,10 +52,10 @@ class BackgroundMusicService : Service(), MediaPlayer.OnPreparedListener,
     var pauseButton: Int? = null
     var playButton: Int? = null
 
+
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         return super.onStartCommand(intent, flags, startId)
     }
-
     private var binder = MyBinder()
     override fun onCreate() {
         //super.onCreate()
@@ -194,36 +191,36 @@ class BackgroundMusicService : Service(), MediaPlayer.OnPreparedListener,
             mediaPlay.release()
         }
 
-        if(File(source!!).exists()
-        ){
+        if (File(source!!).exists()
+        ) {
 
-        mediaPlay = MediaPlayer()
-            .apply {
-                setAudioAttributes(
-                    AudioAttributes.Builder()
-                        .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                        .setUsage(AudioAttributes.USAGE_MEDIA)
-                        .build()
-                )
-                setDataSource(source)
-                prepare()
-                mediaPlay=this
-                if (startMusic) {
+            mediaPlay = MediaPlayer()
+                .apply {
+                    setAudioAttributes(
+                        AudioAttributes.Builder()
+                            .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                            .setUsage(AudioAttributes.USAGE_MEDIA)
+                            .build()
+                    )
+                    setDataSource(source)
+                    prepare()
+                    mediaPlay = this
+                    if (startMusic) {
 
-                    showNotification(notificationIcon, playBackPlay())
-                    start()
-                    requestAudioFocus()
-                }else{
+                        showNotification(notificationIcon, playBackPlay())
+                        start()
+                        requestAudioFocus()
+                    } else {
 
-                    showNotification(notificationIcon, playBackPause())
+                        showNotification(notificationIcon, playBackPause())
+                    }
+
                 }
 
-            }
+            //TODO (find notification fix for the music duration)
+            mediaPlay.setOnPreparedListener(this)
 
-        //TODO (find notification fix for the music duration)
-        mediaPlay.setOnPreparedListener(this)
-
-    }
+        }
 
 
     }
@@ -355,7 +352,7 @@ class BackgroundMusicService : Service(), MediaPlayer.OnPreparedListener,
     fun openFromNotification() {
         val intento = Intent(this, PlayMusicScreen::class.java)
             .apply {
-                flags=Intent.FLAG_ACTIVITY_NEW_TASK
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
             }
         startActivity(intento)
     }
@@ -468,4 +465,10 @@ class BackgroundMusicService : Service(), MediaPlayer.OnPreparedListener,
     }
 
 
+    fun loadMusic(
+        activity: Activity,
+        viewModel: OverPlayViewModel? = null,
+    ) {
+        FindMusic.retrieveMusic(activity, viewmodel)
+    }
 }

@@ -1,9 +1,9 @@
-package com.overplay.overplay.Adapter.ViewHolders
+package com.overplay.overplay.adapter.ViewHolders
 
 import android.content.Context
 import android.view.View
 import android.widget.TextView
-import com.overplay.overplay.Adapter.FolderClickListener
+import com.overplay.overplay.adapter.FolderClickListener
 import com.overplay.overplay.R
 import com.overplay.overplay.database.entities.MusicItem
 import com.votenoid.votenoid.Adapter.SuperClickListener

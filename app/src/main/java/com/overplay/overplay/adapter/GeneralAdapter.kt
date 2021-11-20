@@ -3,7 +3,7 @@ package com.votenoid.votenoid.Adapter
 import android.content.Context
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.overplay.overplay.Adapter.ViewHolders.MainViewHolder
+import com.overplay.overplay.adapter.ViewHolders.MainViewHolder
 import com.overplay.overplay.database.entities.MusicItem
 
 class GeneralAdapter : RecyclerView.Adapter<MainViewHolder>() {

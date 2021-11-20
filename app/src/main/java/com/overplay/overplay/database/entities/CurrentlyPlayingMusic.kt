@@ -3,7 +3,7 @@ package com.overplay.overplay.database.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.overplay.overplay.Adapter.SuperEntity
+import com.overplay.overplay.adapter.SuperEntity
 import com.overplay.overplay.util.Constants
 
 @Entity(tableName = "currentlyPlaying")

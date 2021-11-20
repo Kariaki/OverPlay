@@ -1,4 +1,4 @@
-package com.overplay.overplay.screens
+package com.overplay.overplay.ui.others
 
 import android.content.Context
 import android.content.Intent

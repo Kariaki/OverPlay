@@ -1,10 +1,10 @@
-package com.overplay.overplay.Adapter.ViewHolders.Plugs
+package com.overplay.overplay.adapter.ViewHolders.Plugs
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.overplay.overplay.Adapter.ViewHolders.FolderViewHolder
-import com.overplay.overplay.Adapter.ViewHolders.MainViewHolder
-import com.overplay.overplay.Adapter.ViewHolders.MusicViewHolder
+import com.overplay.overplay.adapter.ViewHolders.FolderViewHolder
+import com.overplay.overplay.adapter.ViewHolders.MainViewHolder
+import com.overplay.overplay.adapter.ViewHolders.MusicViewHolder
 import com.overplay.overplay.R
 import com.votenoid.votenoid.Adapter.GeneralAdapter
 

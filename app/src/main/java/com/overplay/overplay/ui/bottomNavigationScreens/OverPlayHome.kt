@@ -1,4 +1,4 @@
-package com.overplay.overplay.screens.bottomNavigationScreens
+package com.overplay.overplay.ui.bottomNavigationScreens
 
 import android.content.Context
 import android.content.Intent
@@ -15,16 +15,16 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.overplay.overplay.Adapter.ViewHolders.AlbumViewHolder
-import com.overplay.overplay.Adapter.ViewHolders.ArtistViewHolder
-import com.overplay.overplay.Adapter.ViewHolders.MainViewHolder
-import com.overplay.overplay.Adapter.ViewHolders.RecentlyPlayedMusicViewHolder
+import com.overplay.overplay.adapter.ViewHolders.AlbumViewHolder
+import com.overplay.overplay.adapter.ViewHolders.ArtistViewHolder
+import com.overplay.overplay.adapter.ViewHolders.MainViewHolder
+import com.overplay.overplay.adapter.ViewHolders.RecentlyPlayedMusicViewHolder
 import com.overplay.overplay.notification.BackgroundMusicService
 import com.overplay.overplay.util.Constants
 import com.overplay.overplay.database.OverPlayViewModel
 import com.overplay.overplay.database.entities.MusicItem
 import com.overplay.overplay.R
-import com.overplay.overplay.screens.SongsScreen
+import com.overplay.overplay.ui.others.SongsScreen
 import com.overplay.overplay.util.ConnectionExecutor
 import com.overplay.overplay.util.Connections
 import com.overplay.overplay.database.PlayViewModel

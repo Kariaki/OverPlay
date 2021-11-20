@@ -1,4 +1,4 @@
-package com.overplay.overplay.screens
+package com.overplay.overplay.ui.others
 
 import android.content.Context
 import android.content.Intent
@@ -21,8 +21,8 @@ import com.bumptech.glide.Glide
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import com.google.android.material.appbar.CollapsingToolbarLayout
-import com.overplay.overplay.Adapter.ViewHolders.MainViewHolder
-import com.overplay.overplay.Adapter.ViewHolders.MusicViewHolder
+import com.overplay.overplay.adapter.ViewHolders.MainViewHolder
+import com.overplay.overplay.adapter.ViewHolders.MusicViewHolder
 import com.overplay.overplay.notification.BackgroundMusicService
 import com.overplay.overplay.util.Constants
 import com.overplay.overplay.database.entities.MusicItem
@@ -127,7 +127,7 @@ class AlbumSongsScreen : Fragment() {
 
             myservice.playMusic(items, position, viewModel,type = Constants.ALBUM_SONGS,passedActivity = requireActivity() as AppCompatActivity,name = clickedMusic.album!!)
             playViewModel.setPlayValue(true)
-            viewModel.insertPlay(SongsScreen.convertToPlay(clickedMusic,position))
+            viewModel.insertPlay(SongsScreen.convertToPlay(clickedMusic, position))
 
         }
 

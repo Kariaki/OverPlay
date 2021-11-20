@@ -45,6 +45,8 @@ class OverPlayRepository(application: Application) {
 
     fun retrieveArtist(): LiveData<MutableList<MusicItem>> = dbDao.retrieveArtist()
 
+    fun retrieveArtistSongs(artist:String):LiveData<MutableList<MusicItem>> =dbDao.retrieveArtistSongs(artist)
+
     fun getFolderSongs(folder: String): LiveData<Int> =
         dbDao.getFolderSongs(folder)
 

@@ -1,4 +1,4 @@
-package com.overplay.overplay.screens.bottomNavigationScreens
+package com.overplay.overplay.ui.bottomNavigationScreens
 
 import android.content.Context
 import android.content.Intent
@@ -12,14 +12,14 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.overplay.overplay.Adapter.ViewHolders.Plugs.SongsPlug
+import com.overplay.overplay.adapter.ViewHolders.Plugs.SongsPlug
 import com.overplay.overplay.notification.BackgroundMusicService
 import com.overplay.overplay.util.Constants
 import com.overplay.overplay.database.OverPlayViewModel
 import com.overplay.overplay.database.PlayViewModel
 import com.overplay.overplay.database.entities.MusicItem
 import com.overplay.overplay.databinding.SearchScreenBinding
-import com.overplay.overplay.screens.SongsScreen
+import com.overplay.overplay.ui.others.SongsScreen
 import com.overplay.overplay.util.ConnectionExecutor
 import com.overplay.overplay.util.Connections
 import com.votenoid.votenoid.Adapter.GeneralAdapter

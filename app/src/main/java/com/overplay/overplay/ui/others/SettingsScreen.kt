@@ -1,4 +1,4 @@
-package com.overplay.overplay.Screens
+package com.overplay.overplay.ui.others
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

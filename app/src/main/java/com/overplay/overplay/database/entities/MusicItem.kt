@@ -5,7 +5,7 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.overplay.overplay.Adapter.SuperEntity
+import com.overplay.overplay.adapter.SuperEntity
 
 @Entity(tableName = "songs")
 open class MusicItem(

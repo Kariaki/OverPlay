@@ -15,10 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.overplay">
         <activity
-            android:name=".screens.SplashScreenActivity"
+            android:name=".ui.LoadMusicActivity"
             android:noHistory="true"
-            android:theme="@style/Theme.splashScreen"
-            android:exported="true">
+            android:exported="true" />
+        <activity
+            android:name=".ui.others.SplashScreenActivity"
+            android:exported="true"
+            android:noHistory="true"
+            android:theme="@style/Theme.splashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,11 +41,9 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
-            android:name=".screens.PlayMusicScreen"
+            android:name=".ui.others.PlayMusicScreen"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
 

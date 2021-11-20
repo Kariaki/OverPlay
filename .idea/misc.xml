@@ -6,14 +6,17 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.308974358974359" />
         <entry key="app/src/main/res/drawable/album_gradient.xml" value="0.308974358974359" />
         <entry key="app/src/main/res/drawable/arrow_down.xml" value="0.308974358974359" />
+        <entry key="app/src/main/res/drawable/arrow_right.xml" value="0.24391891891891893" />
         <entry key="app/src/main/res/drawable/light_option.xml" value="0.308974358974359" />
         <entry key="app/src/main/res/drawable/liked_song_gradient.xml" value="0.308974358974359" />
         <entry key="app/src/main/res/drawable/logo_foreground.xml" value="0.3050632911392405" />
+        <entry key="app/src/main/res/drawable/modal_top_gradient.xml" value="0.30464135021097044" />
         <entry key="app/src/main/res/drawable/more.xml" value="0.308974358974359" />
         <entry key="app/src/main/res/drawable/over_play.xml" value="0.3050632911392405" />
         <entry key="app/src/main/res/drawable/pause.xml" value="0.3050632911392405" />
         <entry key="app/src/main/res/drawable/pause_alt.xml" value="0.3050632911392405" />
         <entry key="app/src/main/res/drawable/play_alt.xml" value="0.3050632911392405" />
+        <entry key="app/src/main/res/drawable/play_background.xml" value="0.24391891891891893" />
         <entry key="app/src/main/res/drawable/previous.xml" value="0.308974358974359" />
         <entry key="app/src/main/res/drawable/progress_drawable.xml" value="0.3050632911392405" />
         <entry key="app/src/main/res/drawable/repeat.xml" value="0.308974358974359" />
@@ -21,6 +24,8 @@
         <entry key="app/src/main/res/drawable/repeate_state.xml" value="0.308974358974359" />
         <entry key="app/src/main/res/drawable/search_background.xml" value="0.3050632911392405" />
         <entry key="app/src/main/res/drawable/splash_design_light.xml" value="0.3050632911392405" />
+        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_load_music.xml" value="0.1721311475409836" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14452798663324978" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.29572649572649573" />
@@ -28,6 +33,7 @@
         <entry key="app/src/main/res/layout/album_music_item.xml" value="0.33" />
         <entry key="app/src/main/res/layout/album_songs.xml" value="0.14452798663324978" />
         <entry key="app/src/main/res/layout/artist_design.xml" value="0.14452798663324978" />
+        <entry key="app/src/main/res/layout/artist_screen.xml" value="0.2952991452991453" />
         <entry key="app/src/main/res/layout/folder_design.xml" value="0.14957264957264957" />
         <entry key="app/src/main/res/layout/library_music_screen.xml" value="0.29572649572649573" />
         <entry key="app/src/main/res/layout/library_screen.xml" value="0.14452798663324978" />
@@ -36,8 +42,8 @@
         <entry key="app/src/main/res/layout/music_option_list_dialog.xml" value="0.29572649572649573" />
         <entry key="app/src/main/res/layout/music_option_list_dialog_item.xml" value="0.29572649572649573" />
         <entry key="app/src/main/res/layout/music_options.xml" value="0.29572649572649573" />
-        <entry key="app/src/main/res/layout/over_play_home.xml" value="0.14452798663324978" />
-        <entry key="app/src/main/res/layout/play_music_screen.xml" value="0.36041666666666666" />
+        <entry key="app/src/main/res/layout/over_play_home.xml" value="0.23189890710382513" />
+        <entry key="app/src/main/res/layout/play_music_screen.xml" value="0.11463171864631719" />
         <entry key="app/src/main/res/layout/recent_play_design.xml" value="0.14452798663324978" />
         <entry key="app/src/main/res/layout/recently_played_design.xml" value="0.14452798663324978" />
         <entry key="app/src/main/res/layout/search_query_screen.xml" value="0.29572649572649573" />

@@ -1,4 +1,4 @@
-package com.overplay.overplay.screens
+package com.overplay.overplay.ui.others
 
 import android.content.Context
 import android.content.Intent
@@ -11,9 +11,10 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.overplay.overplay.Adapter.ViewHolders.Plugs.SongsPlug
+import com.overplay.overplay.adapter.ViewHolders.Plugs.SongsPlug
 import com.overplay.overplay.MusicOptionModal
 import com.overplay.overplay.notification.BackgroundMusicService
 import com.overplay.overplay.util.Constants
@@ -35,7 +36,6 @@ class SongsScreen : Fragment() {
     var items: MutableList<MusicItem> = mutableListOf()
 
     private lateinit var viewModel: OverPlayViewModel
-    private lateinit var playViewModel: PlayViewModel
     var musicPlayer: MediaPlayer? = null
 
 
@@ -96,8 +96,9 @@ class SongsScreen : Fragment() {
 
         override fun onClickIcon(position: Int) {
             //super.onClickIcon(position)
-            val option=MusicOptionModal()
-            option.show(childFragmentManager,null)
+            val action=SongsScreenDirections.actionSongsScreenToMusicOption(items[position])
+            findNavController().navigate(action)
+
         }
 
     }

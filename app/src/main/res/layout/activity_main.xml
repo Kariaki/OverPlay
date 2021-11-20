@@ -34,12 +34,13 @@
         <RelativeLayout
             android:id="@+id/playingMusicHolder"
             android:layout_width="match_parent"
+
             android:layout_height="65dp"
 
             android:layout_above="@+id/bottom_nav"
             android:background="?attr/homeItemBackground"
 
-            android:visibility="visible">
+            android:visibility="gone">
 
             <ProgressBar
                 android:id="@+id/musicPlayProgress"

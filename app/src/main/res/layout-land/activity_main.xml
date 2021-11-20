@@ -15,7 +15,9 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="match_parent"
+            android:layout_toEndOf="@id/bottom_nav"
+            android:layout_width="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_height="wrap_content"
             android:background="?attr/homeItemBackground"
             android:paddingTop="30dp"
@@ -25,9 +27,11 @@
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/navController"
             android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_above="@+id/bottom_nav"
+            android:layout_toEndOf="@id/bottom_nav"
+            android:layout_alignParentEnd="true"
             android:layout_below="@+id/toolbar"
             app:navGraph="@navigation/music_graph" />
 
@@ -35,8 +39,8 @@
             android:id="@+id/playingMusicHolder"
             android:layout_width="match_parent"
             android:layout_height="65dp"
-
-            android:layout_above="@+id/bottom_nav"
+            android:layout_toEndOf="@id/bottom_nav"
+            android:layout_alignParentBottom="true"
             android:background="?attr/homeItemBackground"
 
             android:visibility="visible">
@@ -109,12 +113,11 @@
 
         </RelativeLayout>
 
-
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_nav"
-            android:layout_width="match_parent"
+            android:layout_width="50dp"
 
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
 
             android:background="?attr/BackgroundColor"
@@ -124,6 +127,7 @@
             >
 
         </com.google.android.material.bottomnavigation.BottomNavigationView>
+
 
     </RelativeLayout>
 </layout>

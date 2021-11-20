@@ -21,7 +21,6 @@ class OverPlayViewModel(application: Application) : AndroidViewModel(application
         repository = OverPlayRepository(application)
         allMusic = repository.allSongs()
         allAlbums = repository.retrieveAlbums()
-
         currentlyPlayingMusic = repository.getCurrentlyPlaying()
         recentlyPlayed = repository.getRecentlyPlayed()
         folders = repository.retrieveFolders()
@@ -66,6 +65,7 @@ class OverPlayViewModel(application: Application) : AndroidViewModel(application
 
     fun albumSongs(album: String): LiveData<MutableList<MusicItem>> = repository.allAlbum(album)
 
+    fun artistSongs(artist:String):LiveData<MutableList<MusicItem>> = repository.retrieveArtistSongs(artist)
     fun folderSongs(folder: String): LiveData<MutableList<MusicItem>> =
         repository.retrieveFolderSongs(folder)
 

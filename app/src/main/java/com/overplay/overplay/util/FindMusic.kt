@@ -5,6 +5,9 @@ import android.content.ContentUris
 import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.provider.MediaStore
+import android.view.View
+import android.widget.ProgressBar
+import android.widget.TextView
 import com.overplay.overplay.database.OverPlayViewModel
 import com.overplay.overplay.database.entities.MusicItem
 
@@ -14,7 +17,9 @@ object FindMusic {
 
     fun retrieveMusic(
         activity: Activity,
-        viewModel: OverPlayViewModel? = null
+        viewModel: OverPlayViewModel? = null,
+
+
     ): MutableList<MusicItem> {
 
         val selection = MediaStore.Audio.Media.IS_MUSIC + " != 0"
@@ -44,9 +49,10 @@ object FindMusic {
             null
         )
 
+        var count=0
         while (cursor.moveToNext()) {
 
-
+            count++
             val artist = cursor.getString(1)
             val tittle = cursor.getString(2)
             val path = cursor.getString(3)
@@ -70,7 +76,7 @@ object FindMusic {
                 albumArtId
             )
 
-            var folder = path.split("/")
+            val folder = path.split("/")
             val music = MusicItem(
 
                 tittle = tittle,
@@ -89,6 +95,8 @@ object FindMusic {
             output.add(music)
             viewModel?.insertSong(music)
         }
+
+
         return output
     }
 

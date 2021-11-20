@@ -3,6 +3,7 @@ package com.overplay.overplay
 import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -20,25 +22,22 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bumptech.glide.Glide
 import com.overplay.overplay.database.OverPlayViewModel
-import com.overplay.overplay.DependencyInjection.Car
+
 import com.overplay.overplay.database.PlayViewModel
 import com.overplay.overplay.database.entities.CurrentlyPlayingMusic
 import com.overplay.overplay.database.entities.MusicItem
 import com.overplay.overplay.database.entities.SavedSharedPreference
 import com.overplay.overplay.databinding.ActivityMainBinding
 import com.overplay.overplay.notification.BackgroundMusicService
-import com.overplay.overplay.screens.PlayMusicScreen
-import com.overplay.overplay.screens.SongsScreen
+import com.overplay.overplay.ui.others.PlayMusicScreen
+import com.overplay.overplay.ui.others.SongsScreen
 import com.overplay.overplay.util.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var car: Car
     private lateinit var navController: NavController
 
     private lateinit var viewModel: OverPlayViewModel
@@ -60,9 +59,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-       // setTheme(R.style.Theme.overplay)
+        // setTheme(R.style.Theme.overplay)
 
-      //  window.setBackgroundDrawableResource(R.drawable.splash_design_light)
+        //  window.setBackgroundDrawableResource(R.drawable.splash_design_light)
         binding = ActivityMainBinding.inflate(layoutInflater)
         Intent(this, BackgroundMusicService::class.java).also { intent ->
             bindService(intent, Connections(connectionExecutor), Context.BIND_AUTO_CREATE)
@@ -84,35 +83,31 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, configuration)
 
-
-        if (!allPermissionGranted()) {
-            requestNeededPermissions()
-        }
-
         viewModel = ViewModelProvider(this).get(OverPlayViewModel(application!!)::class.java)
 
-        viewModel.currentlyPlayingMusic.observe(this,  {
+        viewModel.currentlyPlayingMusic.observe(this, {
 
             if (it.isNotEmpty()) {
 
-                val artistName=it[0].artist
+                val artistName = it[0].artist
                 currentlyPlayingMusic = it[0]
                 binding.playingMusicHolder.visibility = View.VISIBLE
                 binding.songName.text = it[0].tittle
                 binding.artistName.text = FunctionHelper.processArtist(artistName!!)
-                binding.likeButton.isChecked=currentlyPlayingMusic?.liked!!
+                binding.likeButton.isChecked = currentlyPlayingMusic?.liked!!
                 Glide.with(this).load(it[0].albumArt)
                     .placeholder(R.drawable.music_place_holder)
                     .into(binding.playingMusicAlbumArt)
 
-            }else{
+            } else {
 
                 binding.playingMusicHolder.visibility = View.GONE
             }
 
         })
+
         binding.likeButton.setOnCheckedChangeListener { compoundButton, b ->
-            if(currentlyPlayingMusic!=null) {
+            if (currentlyPlayingMusic != null) {
                 val musicItem = SongsScreen.convertBackToMusicItem(currentlyPlayingMusic!!)
                 musicItem.liked = b
                 viewModel.updateSong(musicItem)
@@ -121,11 +116,6 @@ class MainActivity : AppCompatActivity() {
 
         fillInitialQueue()
 
-        GlobalScope.launch(Dispatchers.Default) {
-
-           // FindMusic.retrieveMusic(this@MainActivity, viewModel)
-
-        }
 
 
         binding.bottomNav.setupWithNavController(navController)
@@ -149,44 +139,18 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-
     }
 
     fun observePlayState() {
         playViewModel.musicState.observe(this, Observer {
             binding.musicStateIcon.isChecked = it
             //currentMusic.toggleMusic(it)
-
         })
     }
 
-    private fun allPermissionGranted(): Boolean {
-        for (permission in allRequiredPermissions) {
-            if (ContextCompat.checkSelfPermission(
-                    this,
-                    permission
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                return false
-            }
-        }
-        return true
-    }
-
-    private fun requestNeededPermissions() {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            ActivityCompat.requestPermissions(
-                this,
-                allRequiredPermissions,
-                PackageManager.PERMISSION_GRANTED
-            )
-        }
-    }
 
     override fun onResume() {
         super.onResume()
-
         observePlayState()
 
     }
@@ -196,6 +160,8 @@ class MainActivity : AppCompatActivity() {
         Intent(this, BackgroundMusicService::class.java).also { intent ->
             bindService(intent, connection, Context.BIND_AUTO_CREATE)
         }
+
+
     }
 
     lateinit var connection: Connections
@@ -259,17 +225,17 @@ class MainActivity : AppCompatActivity() {
             viewModel.recentlyPlayed.observe(this, {
                 initialQueue = it
             })
-        }else if(name.type== Constants.LIKED_SONGS){
-            viewModel.likedSongs.observe(this,{
-                initialQueue=it
+        } else if (name.type == Constants.LIKED_SONGS) {
+            viewModel.likedSongs.observe(this, {
+                initialQueue = it
             })
-        }else if(name.type== Constants.SEARCH_SONGS){
+        } else if (name.type == Constants.SEARCH_SONGS) {
 
             viewModel.searchSongs(name.name).observe(this, {
                 initialQueue = it
             })
 
-        }else{
+        } else {
             initialQueue.clear() //set initial queue to empty
         }
 
@@ -288,9 +254,11 @@ class MainActivity : AppCompatActivity() {
 
     fun setProgress() {
 
-        val current: Int = currentMusic.mediaPlay.currentPosition
-        val progress: Int = current * 100 / currentMusic.mediaPlay.duration
-        binding.musicPlayProgress.progress = progress
+        if (currentlyPlayingMusic != null) {
+            val current: Int = currentMusic.mediaPlay.currentPosition
+            val progress: Int = current * 100 / currentMusic.mediaPlay.duration
+            binding.musicPlayProgress.progress = progress
+        }
 
     }
 
@@ -309,5 +277,6 @@ class MainActivity : AppCompatActivity() {
         }
         handler.postDelayed(runnable, 1000)
     }
+
 
 }
