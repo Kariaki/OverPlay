@@ -6,3 +6,5 @@ Overplay is a music player application. The application collect usage statistics
 ![](screenshots/Screenshot_20211120-224844.png)
 ![](screenshots/Screenshot_20211120-224854.png)
 ![](screenshots/Screenshot_20211120-224912.png)
+![](screenshots/Screenshot_20211120-224906.png)
+![](screenshots/Screenshot_20211120-224920.png)
