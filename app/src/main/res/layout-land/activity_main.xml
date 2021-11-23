@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_toEndOf="@id/bottom_nav"
+            android:layout_width="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_height="wrap_content"
+            android:background="?attr/homeItemBackground"
+            android:paddingTop="30dp"
+
+            android:paddingBottom="5dp" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/navController"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_nav"
+            android:layout_toEndOf="@id/bottom_nav"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/toolbar"
+            app:navGraph="@navigation/music_graph" />
+
+        <RelativeLayout
+            android:id="@+id/playingMusicHolder"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_toEndOf="@id/bottom_nav"
+            android:layout_alignParentBottom="true"
+            android:background="?attr/homeItemBackground"
+
+            android:visibility="visible">
+
+            <ProgressBar
+                android:id="@+id/musicPlayProgress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:max="100"
+                android:progress="0" />
+
+            <ImageView
+                android:id="@+id/playingMusicAlbumArt"
+                android:layout_width="75dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/musicPlayProgress"
+                android:layout_alignParentStart="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/six" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/likeButton"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/playingMusicAlbumArt"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/songName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:maxLines="1"
+                    android:textColor="?attr/bigTextColor"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/artistName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatToggleButton
+                android:id="@+id/likeButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/favorite_state"
+                android:layout_toStartOf="@+id/musicStateIcon"
+                android:textOff=""
+                android:textOn="" />
+
+            <androidx.appcompat.widget.AppCompatToggleButton
+                android:id="@+id/musicStateIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
+
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/music_state"
+                android:textOff=""
+                android:textOn="" />
+
+        </RelativeLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            android:layout_width="50dp"
+
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+
+            android:background="?attr/BackgroundColor"
+            android:paddingTop="5dp"
+            app:menu="@menu/home_nav_menu"
+
+            >
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+    </RelativeLayout>
+</layout>
