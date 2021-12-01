@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="5dp"
+    android:layout_marginTop="5dp"
+    android:orientation="vertical"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/musicArt"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/detailWrapper"
+        android:scaleType="centerCrop"
+        android:layout_alignBottom="@id/detailWrapper"
+
+        android:src="@drawable/six" />
+
+    <LinearLayout
+        android:id="@+id/detailWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@id/musicArt"
+
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inder"
+            android:maxLines="1"
+            android:text="Music to be murdered by"
+            android:textColor="?attr/bigTextColor"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:paddingStart="3dp"
+            android:paddingEnd="10dp"
+            android:lines="1"
+            android:text="my name is eminem"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
