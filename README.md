@@ -1,6 +1,8 @@
 # OverPlay
 Overplay is a music player application. The application collect usage statistics to generate smart shuffle and music recommendation with users local music
 
+Get it on playestore https://play.google.com/store/apps/details?id=com.overplay.overplay
+
 ![](screenshots/Screenshot_20211120-224832.png)
 ![](screenshots/Screenshot_20211120-224838.png) 
 ![](screenshots/Screenshot_20211120-224844.png)
